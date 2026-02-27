@@ -1,0 +1,43 @@
+/* style.css - Engineered UI Styles -- Lam Styles */
+
+:root {
+  --bloom: #ffffff0d;
+  --transition: 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body {
+  background: #121212;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.assignment-container {
+  padding: 40px;
+  border: 1px solid #333;
+  background: #1a1a1a;
+  transition: transform var(--transition);
+  will-change: transform;
+  position: relative;
+}
+
+/* 5% Background Dim & Bloom Effect */
+.assignment-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #000;
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.assignment-container:hover {
+  transform: translateY(-4px) rotateX(2deg) rotateY(2deg); /* 3D Tilt */
+}
+
+.assignment-container:hover::before {
+  opacity: 0.05;
+}
